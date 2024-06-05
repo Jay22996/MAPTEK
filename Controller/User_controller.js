@@ -4,6 +4,9 @@ const bcrypt = require("bcryptjs");
 var nodemailer = require("nodemailer");
 
 exports.login = async (req, res) => {
+  console.log(req.body.email);
+  console.log(req.body.password);
+
   var find = await userModel.find({
     $or: [{ email: req.body.email }, { mobile_number: req.body.email }],
   });
