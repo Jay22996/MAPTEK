@@ -12,6 +12,7 @@ exports.login = async (req, res) => {
   });
 console.log(find.length);
   if (find.length == 1) {
+console.log("find")
     const isPasswordMatch = await bcrypt.compare(
       req.body.password,
       find[0].password
@@ -27,6 +28,7 @@ console.log(find.length);
       });
     }
   } else {
+console.log("find.length")
     res.status(200).json({
       status: "please register",
     });
