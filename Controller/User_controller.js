@@ -10,7 +10,7 @@ exports.login = async (req, res) => {
   var find = await userModel.find({
     $or: [{ email: req.body.email }, { mobile_number: req.body.email }],
   });
-
+console.log(find.length);
   if (find.length == 1) {
     const isPasswordMatch = await bcrypt.compare(
       req.body.password,
